@@ -2,4 +2,6 @@
 
 with pkgs; [
   fetch
+  heroic
+  librewolf
 ]
