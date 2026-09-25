@@ -79,3 +79,4 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # Got help from https://www.youtube.com/watch?v=ud7YxC33Z3w
+export PATH="$HOME/.nix-profile/bin:$PATH"
