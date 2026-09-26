@@ -262,9 +262,8 @@ binds {
     Mod+G { spawn "prismlauncher"; }
     Mod+Shift+G { spawn "heroic"; }
     Mod+Ctrl+G { spawn "steam"; }
-    Mod+Shift+T { spawn "nemo"; }
     Mod+X { spawn "zeditor"; }
-    Mod+Y { spawn "nemo"; }
+    Mod+Y { spawn "thunar"; }
     Mod+Z { spawn "librewolf"; }
     Mod+Shift+Z { spawn "firefox"; }
 }
