@@ -278,8 +278,10 @@ layout {
 spawn-at-startup "dms" "run"
 spawn-at-startup "xwayland-satellite"
 
-// Void running user runit services
-spawn-at-startup "runsvdir" "/home/ismail/.config/service"
+// make sound work on non-systemd systems
+spawn-at-startup "pipewire"
+spawn-at-startup "wireplumber"
+spawn-at-startup "pipewire-pulse"
 
 // To make steam work
 environment {
