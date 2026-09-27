@@ -279,9 +279,9 @@ spawn-at-startup "dms" "run"
 spawn-at-startup "xwayland-satellite"
 
 // make sound work on non-systemd systems
-spawn-at-startup "pipewire"
-spawn-at-startup "wireplumber"
-spawn-at-startup "pipewire-pulse"
+//spawn-at-startup "pipewire"
+//spawn-at-startup "wireplumber"
+//spawn-at-startup "pipewire-pulse"
 
 // To make steam work
 environment {
