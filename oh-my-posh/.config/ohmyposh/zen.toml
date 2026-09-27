@@ -72,3 +72,5 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   foreground = 'magenta'
   background = 'transparent'
   template = '❯❯ '
+
+# help from https://www.youtube.com/watch?v=9U8LCjuQzdc&t=889s
