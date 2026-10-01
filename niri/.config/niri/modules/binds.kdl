@@ -260,7 +260,7 @@ binds {
     // custom keybinds
     Mod+Shift+C { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     Mod+G { spawn "prismlauncher"; }
-    Mod+Shift+G { spawn "heroic"; }
+    Mod+Shift+G { spawn "heroic" "--console"; }
     Mod+Ctrl+G { spawn "steam"; }
     Mod+X { spawn "zeditor"; }
     Mod+Y { spawn "thunar"; }
