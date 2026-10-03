@@ -261,7 +261,7 @@ binds {
     Mod+Shift+C { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     Mod+G { spawn "prismlauncher"; }
     Mod+Shift+G { spawn "heroic" "--console"; }
-    Mod+Ctrl+G { spawn "steam"; }
+    Mod+Ctrl+G { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
     Mod+X { spawn "zeditor"; }
     Mod+Y { spawn "thunar"; }
     Mod+Z { spawn "librewolf"; }
