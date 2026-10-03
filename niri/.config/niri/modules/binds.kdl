@@ -262,7 +262,8 @@ binds {
     Mod+G { spawn "prismlauncher"; }
     Mod+Shift+G { spawn "heroic" "--console"; }
     Mod+Ctrl+G { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
-    Mod+X { spawn "zeditor"; }
+    Mod+X { spawn "emacsclient" "-c" "-a" "emacs"; }
+    Mod+SHIFT+X { spawn "zeditor"; }
     Mod+Y { spawn "thunar"; }
     Mod+Z { spawn "librewolf"; }
     Mod+Shift+Z { spawn "firefox"; }

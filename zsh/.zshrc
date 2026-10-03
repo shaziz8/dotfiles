@@ -60,6 +60,7 @@ alias ls='eza --color=always'
 alias la='eza -la --color=always'
 alias fetch='fetch --infinite'
 alias spf='superfile'
+alias emacs="emacsclient -c -a 'emacs'"
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -67,5 +68,8 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Oh My Posh
 eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/zen.toml")"
+
+# for doom emacs
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Got help from https://www.youtube.com/watch?v=ud7YxC33Z3w
