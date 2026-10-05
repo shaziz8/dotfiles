@@ -280,7 +280,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/bin/emacs" "--daemon"
 
 window-rule {
-  match app-id="^Emacs$"
+  match app-id=r#"^Emacs"#
 
   background-effect {
     blur true
