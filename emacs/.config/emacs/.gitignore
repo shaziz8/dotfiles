@@ -1,0 +1,19 @@
+# Ignore package downloads, builds, and caches (Elpaca/Straight/MELPA)
+elpaca/
+eln-cache/
+elpa/
+straight/
+.cache/
+
+# Ignore auto-saves, backups, and lock files
+*~
+.#*
+#*#
+
+# Ignore compiled Lisp files
+*.elc
+*.eln
+*.tmp
+
+# Ignore generated config file if tangled automatically from config.org
+config.el
