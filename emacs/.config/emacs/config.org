@@ -78,8 +78,127 @@
 ** Load Evil Mode
 
 #+begin_src emacs-lisp
-;; Expands to: (elpaca evil (use-package evil :demand t))
-(use-package evil :ensure t :demand t)
+    ;; Expands to: (elpaca evil (use-package evil :demand t))
+  (use-package evil
+      :ensure t ;; ensures package is installed
+      :init      ;; tweak evil's configuration before loading it
+      (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+      (setq evil-want-keybinding nil) ;; disable legacy evil keybinds so evil collection can take over
+      (setq evil-vsplit-window-right t) ;; makes vertical window split open window to right (:vsp)
+      (setq evil-split-window-below t) ;; makes horizontal window split open new window below (:sp)
+      :config
+      (evil-mode 1)) ;; globally turn on evil mode
+
+    (use-package evil-collection
+      :ensure t ;; ensures package is installed
+      :after evil ;; enable after evil  has beeen successfully enabled
+      :config
+      (evil-collection-init)) ;; enable evil keybinds globally
+#+end_src
+
+** Which-Key Popup
+
+#+begin_src emacs-lisp
+  (use-package which-key
+    :ensure t
+    :init
+      (which-key-mode 1)
+    :config
+    (setq which-key-side-window-location 'bottom
+  	  which-key-sort-order #'which-key-key-order-alpha
+  	  which-key-sort-uppercase-first nil
+  	  which-key-add-column-padding 1
+  	  which-key-max-display-columns nil
+  	  which-key-min-display-lines 6
+  	  which-key-side-window-slot -10
+  	  which-key-side-window-max-height 0.25
+  	  which-key-idle-delay 0.2
+  	  which-key-max-description-length 25
+  	  which-key-allow-imprecise-window-fit t
+  	  which-key-separator " → " ))
+#+end_src
+
+* Keybindings
+
+** General keybinds
+#+begin_src emacs-lisp
+  (use-package general
+    :ensure t
+    :after evil
+    :config
+    (general-evil-setup)
+    (general-create-definer ismail/leader-keys
+      :states '(normal insert visual emacs)
+      :keymaps 'override
+      :prefix "SPC"            ;; Set leader key for normal (visual) mode
+      :global-prefix "M-SPC")  ;; Access leader in insert mode via Alt+Space
+
+    ;; HIGHLIGHT: Consolidated into a single definer call
+    (ismail/leader-keys
+      "." '(find-file :wk "Find file")
+      "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
+      "TAB TAB" '(comment-line :wk "Comment lines")
+
+      "b" '(:ignore t :wk "buffer")
+      "b b" '(switch-to-buffer :wk "Switch buffer")
+      "b i" '(ibuffer :wk "Ibuffer")
+      "b k" '(kill-current-buffer :wk "Kill current buffer")
+      "b n" '(next-buffer :wk "Next buffer")
+      "b p" '(previous-buffer :wk "Previous buffer")
+      "b r" '(revert-buffer :wk "Reload buffer")
+
+      "e" '(:ignore t :wk "Evaluate")    
+      "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
+      "e d" '(eval-defun :wk "Evaluate defun containing or after point")
+      "e e" '(eval-expression :wk "Evaluate an elisp expression")
+      "e l" '(eval-last-sexp :wk "Evaluate elisp expression before point")
+      "e r" '(eval-region :wk "Evaluate elisp in region") 
+
+      "h" '(:ignore t :wk "Help")
+      "h f" '(describe-function :wk "Describe function")
+      "h v" '(describe-variable :wk "Describe variable")
+      "h r r" '((lambda () (interactive) (load-file user-init-file)) :wk "Reload emacs config") ;; HIGHLIGHT: Uses built-in user-init-file path
+
+      "t" '(:ignore t :wk "Toggle")
+      "t l" '(display-line-numbers-mode :wk "Toggle line numbers")
+      "t t" '(visual-line-mode :wk "Toggle truncated lines"))) ;; HIGHLIGHT: Added missing closing parenthesis for use-package
+#+end_src
+
+#+begin_src emacs-lisp
+  (require 'org-tempo)
+#+end_src
+
+** making zooming in/out keybinds
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+#+end_src
+
+* Sudo editing privileges
+#+begin_src emacs-lisp
+  (use-package sudo-edit
+    :ensure t
+    :init
+    (setq sudo-edit-local-method "doas") ;; use doas by default instead of sudo
+    :config
+      (ismail/leader-keys
+        "fu" '(sudo-edit-find-file :wk "Sudo find file")
+        "fU" '(sudo-edit :wk "Sudo edit file")))
+#+end_src
+
+* Emacs UI
+
+** making emacs look sleek
+#+begin_src emacs-lisp
+
+  (menu-bar-mode -1) ;; removes menubar
+  (tool-bar-mode -1) ;; removes toolbar
+  ;;(scroll-bar-mode -1) ;; removes scrollbar
+
+  (global-display-line-numbers-mode 1) ;; adds numbers to the side
+  (global-visual-line-mode t) ;; truncates lines
 #+end_src
 
 ** Make emacs dark theme
@@ -87,4 +206,41 @@
 (load-theme 'modus-vivendi t)
 #+end_src
 
-** General Keybindings
+** Enabling Org bullets
+
+#+begin_src emacs-lisp
+  (use-package org-superstar
+    :ensure t ;; ensures elpaca installs the program
+    :hook (org-mode . org-superstar-mode) ;; automatically turn on in Org buffers
+  )
+
+  (add-hook 'org-mode-hook 'org-indent-mode) ;; visually aligns text under parent headings
+#+end_src
+
+** Fonts
+
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil
+  :font "JetBrains Mono"
+  :height 110
+  :weight 'medium)
+(set-face-attribute 'fixed-pitch nil
+  :font "JetBrains Mono"
+  :height 110
+  :weight 'medium)
+;; Makes commented text and keywords italics.
+;; This is working in emacsclient but not emacs.
+;; Your font must have an italic face available.
+(set-face-attribute 'font-lock-comment-face nil
+  :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil
+  :slant 'italic)
+
+;; This sets the default font on all graphical frames created after restarting Emacs.
+;; Does the same thing as 'set-face-attribute default' above, but emacsclient fonts
+;; are not right unless I also add this method of setting the default font.
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono-11"))
+
+;; Uncomment the following line if line spacing needs adjusting.
+(setq-default line-spacing 0.12)
+#+end_src
