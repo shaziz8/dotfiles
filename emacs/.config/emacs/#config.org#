@@ -19,7 +19,7 @@
   (defvar elpaca-sources-directory (expand-file-name "sources/" elpaca-directory))
   (defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
                                 :ref nil :depth 1 :inherit ignore
-                                :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+                                :files (:defaults "elpaca-test.el" (:exclude "extensions))
                                 :build (:not elpaca-activate)))
   (let* ((repo  (expand-file-name "elpaca/" elpaca-sources-directory))
          (build (expand-file-name "elpaca/" elpaca-builds-directory))
@@ -209,13 +209,6 @@
   (add-hook 'org-mode-hook 'org-indent-mode) ;; visually aligns text under parent headings
 #+end_src
 
-** add icons to dired file manager
-
-#+begin_src emacs-lisp
-  (use-package all-the-icons-dired
-  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
-#+end_src
-
 ** Fonts
 
 #+begin_src emacs-lisp
@@ -275,10 +268,3 @@
                                  'ivy-rich-switch-buffer-transformer))
 
 #+end_src
-
-
-
-
-the timestamp used for file is:
-https://www.youtube.com/watch?v=A4UothfExBM
-at time: 11:00
