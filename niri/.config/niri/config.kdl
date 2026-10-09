@@ -288,6 +288,20 @@ window-rule {
   }
 }
 
+window-rule {
+    // Sets window opacity (0.0 = completely invisible, 1.0 = fully opaque)
+    opacity 0.91
+
+    // Recommended for transparent windows so borders/focus rings
+    // don't bleed through the middle of the window:
+    draw-border-with-background false
+
+    // Optional: enable background blur for transparent windows
+    background-effect {
+        blur true
+    }
+}
+
 // make sound work on non-systemd systems
 //spawn-at-startup "pipewire"
 //spawn-at-startup "wireplumber"
