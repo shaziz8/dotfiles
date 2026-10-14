@@ -265,7 +265,8 @@ binds {
     Mod+X { spawn "emacsclient" "-c" "-a" "emacs"; }
     Mod+SHIFT+X { spawn "zeditor"; }
     Mod+Y { spawn "thunar"; }
-    Mod+Z { spawn "zen-browser"; }
-    Mod+Shift+Z { spawn "librewolf"; }
+    Mod+Z { spawn "librewolf"; }
+    Mod+Shift+Z { spawn "zen-browser"; }
+
     Mod+Ctrl+Z {spawn "firefox"; }
 }
