@@ -59,8 +59,8 @@ alias neofetch='fastfetch -c neofetch'
 alias ls='eza --color=always'
 alias la='eza -la --color=always'
 alias fetch='fetch --infinite'
-alias spf='superfile'
 alias emacs="emacsclient -c -a 'emacs'"
+alias clock="tty-clock -c -s -S"
 
 # Shell integrations
 eval "$(fzf --zsh)"

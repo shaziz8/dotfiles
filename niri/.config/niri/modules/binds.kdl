@@ -18,7 +18,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+D hotkey-overlay-title="Toggle Application Launcher: fuzzel" {
         spawn "sh" "-c" "pkill -x fuzzel || exec fuzzel";
     }
@@ -266,7 +266,5 @@ binds {
     Mod+SHIFT+X { spawn "zeditor"; }
     Mod+Y { spawn "thunar"; }
     Mod+Z { spawn "librewolf"; }
-    Mod+Shift+Z { spawn "zen-browser"; }
-
-    Mod+Ctrl+Z {spawn "firefox"; }
+    Mod+Shift+Z {spawn "firefox"; }
 }
