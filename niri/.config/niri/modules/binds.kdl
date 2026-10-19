@@ -264,6 +264,7 @@ binds {
     Mod+Ctrl+G { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
     Mod+X { spawn "emacsclient" "-c" "-a" "emacs"; }
     Mod+SHIFT+X { spawn "zeditor"; }
+    Mod+SHIFT+T { spawn "kitty"; }
     Mod+Y { spawn "thunar"; }
     Mod+Z { spawn "librewolf"; }
     Mod+Shift+Z {spawn "firefox"; }
