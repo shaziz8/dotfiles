@@ -73,7 +73,7 @@
     },
     "battery": {
         "states": {
-            "warning": 30,
+            "warning": 40,
             "critical": 15
         },
         "interval": 1,
