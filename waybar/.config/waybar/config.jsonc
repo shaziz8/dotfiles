@@ -4,10 +4,10 @@
     "margin-right": 10,
     "height": 20,
     "modules-left": [
-        "hyprland/window"
+      "niri/window"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+      "niri/workspaces"
     ],
     "modules-right": [
         "tray",
@@ -19,25 +19,15 @@
         "battery",
         "clock"
     ],
-    "hyprland/window": {
+    "niri/window": {
         "format": "{}",
         "max-length": 60,
-        "rewrite": {
-            "": "MiZentUi"
-        },
+        "rewrite": { "": "MiZentUi" },
         "separate-outputs": true
     },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "format-icons": {
-            "active": ""
-        },
-        "sort-by-number": true,
-        "persistent-workspaces": {
-            "*": 3,
-            "HDMI-A-1": 3
-        }
+    "niri/workspaces": {
+        "format": "{index}",
+        "format-icons": { "active": "", "default": "" }
     },
     "clock": {
         "tooltip-format": "{:%d %B %Y}\n<tt><small>{calendar}</small></tt>",
