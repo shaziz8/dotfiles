@@ -1,0 +1,139 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+tooltip {
+  background-color: @background;
+}
+
+tooltip label {
+  color: @foreground;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px @foreground;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: @foreground;
+}
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#workspaces button.focused {
+  background-color: @secondary-bg;
+}
+
+#workspaces button.urgent {
+  background-color: @secondary-bg;
+}
+
+#mode {
+  background-color: @secondary-bg;
+  box-shadow: inset 0 -3px @foreground;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#tray,
+#pulseaudio {
+  padding: 0 10px;
+}
+
+#window {
+  color: @foreground;
+}
+
+#clock {
+  color: @foreground;
+}
+
+#battery {
+  color: @foreground;
+}
+
+#memory {
+  color: @foreground;
+}
+
+#cpu {
+  color: @foreground;
+}
+
+#temperature {
+  color: @foreground;
+}
+
+#network {
+  color: @foreground;
+}
+
+#pulseaudio {
+  color: @foreground;
+}
+
+.modules-right,
+.modules-left,
+.modules-center {
+  background-color: @background;
+  border-radius: 5px;
+}
+
+.modules-right {
+  padding: 0 10px;
+}
+
+.modules-left {
+  padding: 0 20px;
+}
+
+.modules-center {
+  padding: 0 10px;
+}
+
+@keyframes blink {
+  to {
+    color: @background;
+  }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  background-color: @error-bg;
+  color: @error;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(30);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: @background;
+}

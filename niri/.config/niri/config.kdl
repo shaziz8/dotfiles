@@ -278,6 +278,9 @@ layout {
 spawn-at-startup "dms" "run"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/bin/emacs" "--daemon"
+spawn-at-startup "sh" "/home/ismail/.config/niri/modules/autostart.sh"
+spawn-at-startup "swaybg" "-i" "/home/ismail/Pictures/Wallpapers/alpinelinux.png" "-m" "fill"
+spawn-at-startup "waybar"
 
 window-rule {
   match app-id=r#"^Emacs"#
@@ -286,6 +289,11 @@ window-rule {
     blur true
     xray false
   }
+}
+
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24
 }
 
 window-rule {
