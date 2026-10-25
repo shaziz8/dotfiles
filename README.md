@@ -1,3 +1,3 @@
 # dotfiles
 
-Managed by GNU stow
+Managed by GNU stow.
