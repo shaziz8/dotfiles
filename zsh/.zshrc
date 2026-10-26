@@ -61,15 +61,19 @@ alias la='eza -la --color=always'
 alias fetch='fetch --infinite'
 alias emacs="emacsclient -c -a 'emacs'"
 alias clock="tty-clock -c -s -S"
+alias niri="dbus-run-session niri"
+alias mango="dbus-run-session mango"
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # Oh My Posh
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/zen.toml")"
 
 # for doom emacs
 export PATH="$HOME/.config/emacs/bin:$PATH"
+
 
 # Got help from https://www.youtube.com/watch?v=ud7YxC33Z3w
