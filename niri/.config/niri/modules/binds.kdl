@@ -1,5 +1,5 @@
 input {
-    mod-key "Alt"
+    mod-key "Super"
 }
 
 binds {
