@@ -259,9 +259,9 @@ binds {
 
     // custom keybinds
     Mod+Shift+C { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
-    Mod+G { spawn "flatpak" "run" "org.prismlauncher.PrismLauncher"; }
-    Mod+Shift+G { spawn "flatpak" "run" "com.heroicgameslauncher.hgl";}
-    Mod+Ctrl+G { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
+    Mod+G { spawn "prismlauncher"; }
+    Mod+Shift+G { spawn "heroic" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
+    Mod+Ctrl+G { spawn "steam"; }
     Mod+SHIFT+M { spawn "mpv" "--player-operation-mode=pseudo-gui"; }
     Mod+X { spawn "emacsclient" "-c" "-a" "emacs"; }
     Mod+SHIFT+X { spawn "zeditor"; }
@@ -272,4 +272,4 @@ binds {
     Mod+Y { spawn "thunar"; }
     Mod+Z { spawn "librewolf"; }
     Mod+Shift+Z {spawn "firefox"; }
-}
+  }
