@@ -5,9 +5,9 @@ return {
   build = ':TSUpdate',
   config = function()
     require('nvim-treesitter').setup({})
-    require('nvim-treesitter').install({ 
+    require('nvim-treesitter').install({
       'c',
-      'lua' 
+      'lua'
     })
 
     vim.api.nvim_create_autocmd('FileType', {
