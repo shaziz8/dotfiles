@@ -1,5 +1,5 @@
 input {
-    mod-key "Super"
+    mod-key "Alt"
 }
 
 binds {
@@ -18,7 +18,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Toggle Application Launcher: fuzzel" {
         spawn "sh" "-c" "pkill -x fuzzel || exec fuzzel";
     }
@@ -265,7 +265,7 @@ binds {
     Mod+SHIFT+M { spawn "mpv" "--player-operation-mode=pseudo-gui"; }
     Mod+X { spawn "emacsclient" "-c" "-a" "emacs"; }
     Mod+SHIFT+X { spawn "zeditor"; }
-    Mod+SHIFT+T { spawn "kitty"; }
+    Mod+SHIFT+T { spawn "foot"; }
     Mod+SHIFT+W hotkey-overlay-title="Toggle Waybar" {
         spawn "sh" "-c" "pkill -x waybar || exec waybar";
     }
