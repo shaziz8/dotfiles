@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# ytdl1080.sh - download a video in 1080p with aria2c, merge to mp4, embed one subtitle track
+# ytdl1080.sh - download a video in 1080p with aria2c, merge to mp4,
+# embed one subtitle track, the thumbnail and metadata
 
 # Take the first argument as the URL; default to empty if none was given
 url="${1:-}"
@@ -35,12 +36,23 @@ opts=(
     # Download manually uploaded subtitles, falling back to auto-generated ones
     --write-subs --write-auto-subs
 
-    # Exactly one English track (plain "en" avoids duplicates like en-orig,
-    # which "en.*" would also match)
+    # Exactly one English track (plain "en" avoids duplicates like en-orig)
     --sub-langs "en"
 
     # Embed the downloaded subtitle into the video file
     --embed-subs
+
+    # Convert the thumbnail to jpg (YouTube's webp can't go into mp4 directly)
+    --convert-thumbnails jpg
+
+    # Embed the thumbnail as cover art in the video file
+    --embed-thumbnail
+
+    # Embed title, uploader, date and description as file metadata
+    --embed-metadata
+
+    # Don't download a whole playlist if the URL is a video inside one
+    --no-playlist
 )
 
 # Run yt-dlp with the options above; quoting "$url" protects characters like &
